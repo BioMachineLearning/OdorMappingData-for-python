@@ -1,14 +1,11 @@
+This is a fork of [https://github.com/WachowiakLab/OdorMappingData](WachowiakLab/OdorMappingData) to facilitate working with the data from [1] in python. 
+
 # OdorMappingData
 Glomerular response datasets. 
 
 Credits: S. Burton (data collection, analysis), A. Brown (analysis), M. Wachowiak (analysis), T. Rust (software).
 
-Parent manuscript: 
-Mapping odorant sensitivities reveals a sparse but structured representation of olfactory chemical space by sensory input to the mouse olfactory bulb.
-
-Shawn D. Burton1, Audrey Brown1, Thomas P. Eiting1, Isaac A. Youngstrom1, Thomas C. Rust1, Michael Schmuker2, Matt Wachowiak1
-
-https://elifesciences.org/articles/80470
+Parent manuscript: [1]
 
 See Materials and Methods of above paper for details of data collection and pre-processing pipeline. Description of .mat file is below:
 
@@ -19,5 +16,21 @@ ROI positions indicate centroid of each ROI, after visual registration by aligni
 	'allconcs_prep': Calculated final delivered concentration of each odorant, indexed in the same order as response matrices and odornames list, for each mouse, in mols/L. Note that concentrations estimated from vapor pressure, calibrated air dilution, and liquid dilution, assuming ideal behavior. 
 	'odornameslist': List of all 185 odorants (plus two vehicle controls), indexed in same order as odors in response spectrum matrices.
 
+# Python-specific changes
+1. Data is made available as pickled files, as a convenience for Python users.
+2. Creation process is documented in a jupyter notebook.
+3. Making available the `ROIPos` data that was not accessible from Python previously.
+
+# Files
+* `elife22data_python.pkl`: The data. Contains a dictionary with keys:
+  * `'allresp'`: all repsonse matrices concatenated together. Rows: ROIs/glomeruli, columns: odorants. 
+    `'allrespnorm'`: like `allresp`, but normalised. See original data description and paper for details. 
+    `'roipos'`: Positions X,Y of ROIs. X is the lateral axis, X=0 is the bulb midline. Y is the frontal/caudal axis.  
+    `'ranges'`: the row ranges in which the individual measurement blocks are contained. See `mousenames`.
+    `'mousenames'`: The names of the indivisual measurements, i.e. mice and bulb sides. 
 
 
+# References
+[1] Mapping odorant sensitivities reveals a sparse but structured representation of olfactory chemical space by sensory input to the mouse olfactory bulb.
+Shawn D. Burton, Audrey Brown, Thomas P. Eiting, Isaac A. Youngstrom, Thomas C. Rust, Michael Schmuker, Matt Wachowiak<br/> 
+https://elifesciences.org/articles/80470
