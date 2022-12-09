@@ -25,10 +25,10 @@ This was provided with the original manuscript data.
 # Files
 * `elife22data_python.pkl`: The data. Contains a dictionary with keys:
   * `'allresp'`: all repsonse matrices concatenated together. Rows: ROIs/glomeruli, columns: odorants. 
-    `'allrespnorm'`: like `allresp`, but normalised. See original data description and paper for details. 
-    `'roipos'`: Positions X,Y of ROIs. X is the lateral axis, X=0 is the bulb midline. Y is the frontal/caudal axis.  
-    `'ranges'`: the row ranges in which the individual measurement blocks are contained. See `mousenames`.
-    `'mousenames'`: The names of the indivisual measurements, i.e. mice and bulb sides. 
+  *  `'allrespnorm'`: like `allresp`, but normalised. See original data description and paper for details. 
+  *  `'roipos'`: Positions X,Y of ROIs. X is the lateral axis, X=0 is the bulb midline. Y is the frontal/caudal axis.  
+  *  `'ranges'`: the row ranges in which the individual measurement blocks are contained. See `mousenames`.
+  *  `'mousenames'`: The names of the indivisual measurements, i.e. mice and bulb sides. 
 
 
 # References
